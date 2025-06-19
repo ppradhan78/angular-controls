@@ -1,0 +1,38 @@
+<div [ngClass]="{ 'invalid': isInvalid }">
+  <ng-container [ngSwitch]="type">
+    <input *ngSwitchCase="'text'"
+           type="text"
+           [attr.maxLength]="maxLength"
+           [disabled]="disabled"
+           [value]="value"
+           (input)="setValue($event)" />
+
+    <textarea *ngSwitchCase="'textarea'"
+              [attr.maxLength]="maxLength"
+              [disabled]="disabled"
+              [value]="value"
+              (input)="setValue($event)"></textarea>
+
+    <div *ngSwitchCase="'radio'">
+      <label *ngFor="let opt of options">
+        <input type="radio"
+               [value]="opt"
+               [checked]="value === opt"
+               (change)="setValue($event)" />
+        {{ opt }}
+      </label>
+    </div>
+
+    <input *ngSwitchCase="'check'"
+           type="checkbox"
+           [checked]="value"
+           [disabled]="disabled"
+           (change)="setValue($event)" />
+
+    <input *ngSwitchCase="'datetime'"
+           type="datetime-local"
+           [value]="value"
+           [disabled]="disabled"
+           (input)="setValue($event)" />
+  </ng-container>
+</div>

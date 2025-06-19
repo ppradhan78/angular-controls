@@ -1,0 +1,4 @@
+.invalid input,
+.invalid textarea {
+  border: 1px solid red;
+}
