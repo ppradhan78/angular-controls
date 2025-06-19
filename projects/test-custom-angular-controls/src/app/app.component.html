@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <div>custom-control-input </div>
+  <wellsfargo-custom-control-input formControlName="username"
+                    [type]="'text'"
+                    [required]="true"
+                    [maxLength]="10"></wellsfargo-custom-control-input>
+
+  <wellsfargo-custom-control-input formControlName="birthDate"
+                    [type]="'datetime'"
+                    [required]="true"></wellsfargo-custom-control-input>
+
+  <wellsfargo-custom-control-input formControlName="gender"
+                    [type]="'radio'"
+                    [options]="['Male', 'Female']"
+                    [required]="true"></wellsfargo-custom-control-input>
+</form>

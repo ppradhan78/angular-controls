@@ -35,6 +35,95 @@
           }
         }
       }
+    },
+    "test-custom-angular-controls": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/test-custom-angular-controls",
+      "sourceRoot": "projects/test-custom-angular-controls/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/test-custom-angular-controls",
+            "index": "projects/test-custom-angular-controls/src/index.html",
+            "browser": "projects/test-custom-angular-controls/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/test-custom-angular-controls/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/test-custom-angular-controls/public"
+              }
+            ],
+            "styles": [
+              "projects/test-custom-angular-controls/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "test-custom-angular-controls:build:production"
+            },
+            "development": {
+              "buildTarget": "test-custom-angular-controls:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/test-custom-angular-controls/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/test-custom-angular-controls/public"
+              }
+            ],
+            "styles": [
+              "projects/test-custom-angular-controls/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
