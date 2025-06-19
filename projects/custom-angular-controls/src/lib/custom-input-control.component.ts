@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-custom-angular-controls',
+  selector: 'wellsfargo-custom-angular-controls',
   imports: [],
   template: `
     <p>
@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
   `,
   styles: ``
 })
-export class CustomAngularControlsComponent {
+ 
+export class CustomInputControlComponent {
 
 }

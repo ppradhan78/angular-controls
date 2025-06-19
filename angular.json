@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/custom-angular-controls",
       "sourceRoot": "projects/custom-angular-controls/src",
-      "prefix": "lib",
+      "prefix": "wellsfargo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
