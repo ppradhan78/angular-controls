@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "custom-angular-controls": {
+      "projectType": "library",
+      "root": "projects/custom-angular-controls",
+      "sourceRoot": "projects/custom-angular-controls/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/custom-angular-controls/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/custom-angular-controls/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/custom-angular-controls/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/custom-angular-controls/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "b5f7925a-7dfc-45aa-81ef-ab08c8bb3249"
   }
 }
